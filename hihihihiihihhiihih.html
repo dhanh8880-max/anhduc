@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop Thời Trang</title>
+  <style>
+    /* Reset cơ bản */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      line-height:1.4;
+      color:#222;
+      position:relative;
+      min-height:100vh;
+      overflow-x:hidden;
+      background:linear-gradient(120deg,#f9d1ff,#c7e9fb,#fef6e4);
+      background-size:400% 400%;
+      animation:gradientShift 15s ease infinite;
+    }
+
+    /* Background động chill */
+    @keyframes gradientShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;
+      width:200%;height:200%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation:floatLights 20s linear infinite;
+      pointer-events:none;
+      z-index:-1;
+    }
+    @keyframes floatLights {
+      0% {transform:translate(0,0) scale(1);}
+      50% {transform:translate(-50px,-40px) scale(1.1);}
+      100% {transform:translate(0,0) scale(1);}
+    }
+
+    /* Header */
+    .header{background:linear-gradient(90deg,#ff7a7a 0%,#ffd76a 100%);padding:22px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+    .logo{width:48px;height:48px;border-radius:10px;background:#fff6;padding:6px;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .nav{display:flex;gap:18px}
+    .nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{padding:42px 6%;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .hero .info h1{font-size:36px;margin-bottom:12px}
+    .hero .info p{color:#333a45;opacity:.85;margin-bottom:18px}
+    .cta{display:inline-block;padding:12px 18px;border-radius:10px;background:#222;color:#fff;text-decoration:none;font-weight:600}
+    .hero-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 10px 30px rgba(16,24,40,0.08);overflow:hidden}
+
+    /* Grid sản phẩm */
+    .container{padding:28px 6%}
+    .filters{display:flex;gap:12px;margin-bottom:18px}
+    .filters button{padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:#fff;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+
+    /* Card sản phẩm */
+    .card{position:relative;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(17,24,39,0.06);transition:transform .28s cubic-bezier(.2,.9,.3,1),box-shadow .28s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(17,24,39,0.12)}
+    .card .imgwrap{position:relative;overflow:hidden;height:280px;background:linear-gradient(180deg,#fff,#f8fafc)}
+    .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,.9,.3,1)}
+    .card:hover img{transform:scale(1.06) rotate(-1deg)}
+
+    /* Overlay hover — xuất hiện từ dưới */
+    .overlay{position:absolute;left:0;right:0;bottom:0;height:54%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);transform:translateY(60%);transition:transform .32s ease-in-out}
+    .card:hover .overlay{transform:translateY(0)}
+    .badges{position:absolute;top:12px;left:12px;display:flex;gap:8px}
+    .badge{background:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px}
+
+    .card-info{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+    .price{font-weight:800;font-size:18px}
+    .title{font-weight:700;font-size:14px}
+
+    /* Action buttons that slide in on hover */
+    .actions{display:flex;gap:8px;align-items:center}
+    .btn{background:rgba(255,255,255,0.12);backdrop-filter:blur(4px);border-radius:10px;padding:8px 10px;border:1px solid rgba(255,255,255,0.15);color:#fff;font-weight:600;cursor:pointer;transform:translateY(18px);opacity:0;transition:transform .28s,opacity .28s}
+    .card:hover .btn{transform:translateY(0);opacity:1}
+
+    /* Tagline hover tilt */
+    .tilt{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;color:#111;font-weight:700;transform:translateY(-6px);transition:transform .28s}
+    .tilt:hover{transform:translateY(-12px) rotate(-2deg)}
+
+    /* Footer */
+    footer{padding:28px 6%;text-align:center;color:#6b7280}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .hero-card{order:2}
+      .imgwrap{height:240px}
+    }
+
+    @media (max-width:480px){
+      .imgwrap{height:200px}
+      .card .imgwrap{height:220px}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#">
+      <div class="logo">S</div>
+      <div>
+        <div style="font-weight:800">Shop Anh Đức Luxury</div>
+        <div style="font-size:12px;opacity:.9">Thời trang & phong cách</div>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#">Trang chủ</a>
+      <a href="#">Liên hệ : 0985438594</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="info">
+      <h1>Thời Trang Nam Hiện Đại — <span class="tilt">Phong Cách</span></h1>
+      <p>Miễn phí vận chuyển với đơn hàng trên 1 TRIỆU</p>
+      <a class="cta" href="#products">Xem bộ sưu tập</a>
+    </div>
+
+    <div class="hero-card">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="flex:1">
+          <h3 style="margin-bottom:6px">Giảm giá đặc biệt</h3>
+          <p style="margin-bottom:8px;color:#475569">Áp dụng cho áo khoác mùa đông - Chất liệu dày, form đẹp.</p>
+          <a class="cta" href="#products">Mua ngay</a>
+        </div>
+        <div style="width:120px;height:120px;border-radius:12px;overflow:hidden;background:#eef2ff;display:flex;align-items:center;justify-content:center">
+          <img src="50-off-promotion-red-discount-garland-sticker-symbol-mega_184248_wh1200.png" alt="coat" style="width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="products">
+    <div class="filters">
+      <button>All</button>
+      <button>New</button>
+      <button>Sale</button>
+      <button>Jackets</button>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="imgwrap">
+          <div class="badges">
+            <div class="badge">New</div>
+            <div class="badge">Free Ship</div>
+          </div>
+          <img src="ao-khoac-bomber-nam-dep-ban-chay-1.jpg" alt="Áo khoác nam">
+          <div class="overlay"></div>
+        </div>
+        <div class="card-info">
+          <div>
+            <div class="title">Áo khoác bomber uniqlo</div>
+            <div style="font-size:12px;opacity:.9">Size: S, M, L</div>
+          </div>
+          <div class="actions">
+            <div class="price">₫499,000</div>
+            <button class="btn">Xem</button>
+            <button class="btn">Thêm</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="imgwrap">
+          <div class="badges">
+            <div class="badge">Sale 20%</div>
+          </div>
+          <img src="1_b6f6af3d23024d3b99afab0dcc71973a_large.png" alt="Quần nam">
+          <div class="overlay"></div>
+        </div>
+        <div class="card-info">
+          <div>
+            <div class="title">Quần Jeans</div>
+            <div style="font-size:12px;opacity:.9">Màu: Xanh</div>
+          </div>
+          <div class="actions">
+            <div class="price">₫599,000</div>
+            <button class="btn">Xem</button>
+            <button class="btn">Yêu thích</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="imgwrap">
+          <img src="dsquared2-mu-2.jpg" alt="Phụ kiện">
+          <div class="overlay"></div>
+        </div>
+        <div class="card-info">
+          <div>
+            <div class="title">Mũ BOY PHỐ</div>
+            <div style="font-size:12px;opacity:.9">Phong Cách</div>
+          </div>
+          <div class="actions">
+            <div class="price">₫450,000</div>
+            <button class="btn">Xem</button>
+            <button class="btn">Thêm</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="imgwrap">
+          <div class="badges">
+            <div class="badge">Limited</div>
+          </div>
+          <img src="giay-gucci-rep-1-1-3.jpg" alt="Giày gucci">
+          <div class="overlay"></div>
+        </div>
+        <div class="card-info">
+          <div>
+            <div class="title">Giày Gucci Authentic</div>
+            <div style="font-size:12px;opacity:.9">Số có hạn</div>
+          </div>
+          <div class="actions">
+            <div class="price">₫5,150,000</div>
+            <button class="btn">Xem</button>
+            <button class="btn">Mua</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Shop Anh Đức Luxury — Uy tín • Giá rẻ • Đến là đẹp
+  </footer>
+</body>
+</html>
