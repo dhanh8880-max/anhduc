@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phụ Kiện Nam Luxury — Shop Anh Đức Luxury</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      line-height:1.4;
+      color:#222;
+      background:linear-gradient(120deg,#f9d1ff,#c7e9fb,#fef6e4);
+      background-size:400% 400%;
+      animation:gradientShift 15s ease infinite;
+      min-height:100vh;
+    }
+    @keyframes gradientShift {
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    /* Header */
+    header{
+      background:linear-gradient(90deg,#ff7a7a 0%,#ffd76a 100%);
+      padding:22px 6%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+    .logo{
+      width:48px;height:48px;border-radius:10px;background:#fff6;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:20px;
+    }
+    .nav{display:flex;gap:18px}
+    .nav a{
+      color:rgba(255,255,255,0.95);
+      text-decoration:none;
+      font-weight:600;
+      transition:opacity .3s;
+    }
+    .nav a:hover{opacity:.7}
+
+    /* Main */
+    main{padding:40px 6%}
+    h1{font-size:32px;margin-bottom:24px;text-align:center;color:#111}
+
+    /* Grid sản phẩm */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .card{
+      position:relative;
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 20px rgba(17,24,39,0.08);
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(17,24,39,0.15)}
+    .imgwrap{height:260px;overflow:hidden}
+    .imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .card:hover img{transform:scale(1.05)}
+    .card-info{padding:16px}
+    .title{font-weight:700;margin-bottom:6px}
+    .price{color:#e11d48;font-weight:800;margin-bottom:10px}
+    .btn{
+      padding:8px 14px;
+      background:#111;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      transition:background .3s;
+    }
+    .btn:hover{background:#333}
+
+    footer{padding:28px 6%;text-align:center;color:#6b7280;font-size:14px;margin-top:40px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html">
+      <div class="logo">S</div>
+      <div>
+        <div style="font-weight:800">Shop Anh Đức Luxury</div>
+        <div style="font-size:12px;opacity:.9">Phụ kiện nam cao cấp</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="phukien.html">Phụ kiện</a>
+      <a href="giay.html">Giày</a>
+      <a href="https://www.facebook.com/xuanduc.ha.23">Liên hệ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bộ Sưu Tập Phụ Kiện Nam Luxury</h1>
+    <div class="grid">
+
+      <!-- 1. Ví da cá sấu -->
+      <div class="card">
+        <div class="imgwrap">
+          <img src="phukien1.jpg" alt="Ví da nam luxury">
+        </div>
+        <div class="card-info">
+          <div class="title">Ví Da Cá Sấu Nam Cao Cấp</div>
+          <div class="price">₫3.200.000</div>
+          <button class="btn">Xem chi tiết</button>
+        </div>
+      </div>
+
+      <!-- 2. Thắt lưng nam -->
+      <div class="card">
+        <div class="imgwrap">
+          <img src="phukien2.jpg" alt="Thắt lưng nam luxury">
+        </div>
+        <div class="card-info">
+          <div class="title">Thắt Lưng Da Bò Khóa Vàng</div>
+          <div class="price">₫2.850.000</div>
+          <button class="btn">Mua ngay</button>
+        </div>
+      </div>
+
+      <!-- 3. Kính mát nam -->
+      <div class="card">
+        <div class="imgwrap">
+          <img src="phukien3.jpg" alt="Kính mát nam luxury">
+        </div>
+        <div class="card-info">
+          <div class="title">Kính Mát Nam Dior Limited</div>
+          <div class="price">₫5.900.000</div>
+          <button class="btn">Xem chi tiết</button>
+        </div>
+      </div>
+
+      <!-- 4. Vòng tay nam -->
+      <div class="card">
+        <div class="imgwrap">
+          <img src="phukien4.jpg" alt="Vòng tay nam luxury">
+        </div>
+        <div class="card-info">
+          <div class="title">Vòng Tay Da Nam Hermes</div>
+          <div class="price">₫4.200.000</div>
+          <button class="btn">Mua ngay</button>
+        </div>
+      </div>
+
+      <!-- 5. Khăn choàng nam -->
+      <div class="card">
+        <div class="imgwrap">
+          <img src="phukien5.jpg" alt="Khăn choàng nam luxury">
+        </div>
+        <div class="card-info">
+          <div class="title">Khăn Choàng Cashmere Gucci</div>
+          <div class="price">₫6.500.000</div>
+          <button class="btn">Xem chi tiết</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Shop Anh Đức Luxury — Uy tín • Giá rẻ • Đến là đẹp
+  </footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liên hệ — Shop Anh Đức Luxury</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+      line-height:1.5;
+      color:#111;
+      background:linear-gradient(135deg,#e0eafc,#cfdef3);
+      background-size:200% 200%;
+      animation:bgShift 15s ease infinite;
+      min-height:100vh;
+    }
+    @keyframes bgShift{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    header{
+      background:linear-gradient(90deg,#ff7a7a 0%,#ffd76a 100%);
+      padding:22px 6%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      color:#fff;
+    }
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+    .logo{
+      width:48px;height:48px;border-radius:10px;background:#ffffff44;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:20px;
+    }
+    .nav{display:flex;gap:20px}
+    .nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      transition:opacity .3s;
+    }
+    .nav a:hover{opacity:.7}
+
+    main{
+      padding:50px 6%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    h1{font-size:32px;margin-bottom:10px;color:#111}
+    p.subtitle{color:#555;margin-bottom:30px}
+
+    .contact-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:20px;
+      max-width:800px;
+      width:100%;
+    }
+    .card{
+      background:#fff;
+      border-radius:14px;
+      padding:24px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 32px rgba(0,0,0,0.12);
+    }
+    .icon{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+    .label{font-weight:700;margin-bottom:6px}
+    a.link{
+      text-decoration:none;
+      color:#2563eb;
+      font-weight:600;
+      transition:color .3s;
+      word-break:break-word;
+    }
+    a.link:hover{color:#1e40af}
+    footer{padding:28px 6%;text-align:center;color:#6b7280;font-size:14px;margin-top:40px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html">
+      <div class="logo">S</div>
+      <div>
+        <div style="font-weight:800">Shop Anh Đức Luxury</div>
+        <div style="font-size:12px;opacity:.9">Liên hệ & Hỗ trợ</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="phukien.html">Phụ kiện</a>
+      <a href="giay.html">Giày Dép</a>
+      <a href="lienhe.html">Liên hệ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Liên Hệ Với Shop Anh Đức Luxury</h1>
+    <p class="subtitle">Mọi thắc mắc hoặc đặt hàng xin vui lòng liên hệ qua các kênh dưới đây:</p>
+
+    <div class="contact-box">
+      <!-- Số điện thoại -->
+      <div class="card">
+        <div class="icon">📞</div>
+        <div class="label">Số điện thoại / Zalo</div>
+        <a href="tel:0985438594" class="link">0985 438 594</a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="card">
+        <div class="icon">📘</div>
+        <div class="label">Facebook</div>
+        <a href="https://www.facebook.com/xuanduc.ha.23" class="link" target="_blank">
+          facebook.com/xuanduc.ha.23
+        </a>
+      </div>
+
+      <!-- Discord -->
+      <div class="card">
+        <div class="icon">🎮</div>
+        <div class="label">Discord</div>
+        <a href="#" class="link">xunduc_vn</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Shop Anh Đức Luxury — Hotline 0985 438 594 — Uy tín & Chất lượng hàng đầu
+  </footer>
+</body>
+</html>
